@@ -15,7 +15,7 @@ if (!function_exists('dumpIntoStr')) {
         ob_end_clean();
 
         if (PHP_SAPI !== 'cli') {
-            $ret = "<style>pre.dump-dd{width:fit-content;background-color:#333333;border:1px dashed #cccccc;color:#cccccc;padding:5px}span.dump-collapsed span{display:none}span.js-dump-collapse{display:unset !important;}span.js-dump-collapse.dump-collapsed:before{position:relative;content:'+';font-weight:bold;color:#6caa36;cursor:pointer}span.js-dump-collapse.dump-un-collapsed:before{position:relative;content:'-';font-weight:bold;color:#d02a2c;cursor:pointer}span.dump-expand-all:before{position:relative;content:'+>>';font-weight:bold;color:#6caa36;cursor:pointer}span.dump-collapse-all:before{position:relative;content:'<<-';font-weight:bold;color:#d02a2c;cursor:pointer}</style>";
+            $ret = "<style>pre.dump-dd{position:relative;z-index:99999 !important;width:fit-content;background-color:#333333;border:1px dashed #cccccc;color:#cccccc;padding:5px}span.dump-collapsed span{display:none}span.js-dump-collapse{display:unset !important;}span.js-dump-collapse.dump-collapsed:before{position:relative;content:'+';font-weight:bold;color:#6caa36;cursor:pointer}span.js-dump-collapse.dump-un-collapsed:before{position:relative;content:'-';font-weight:bold;color:#d02a2c;cursor:pointer}span.dump-expand-all:before{position:relative;content:'+>>';font-weight:bold;color:#6caa36;cursor:pointer}span.dump-collapse-all:before{position:relative;content:'<<-';font-weight:bold;color:#d02a2c;cursor:pointer}</style>";
             $ret .= '<pre class="dump-dd">';
 
             $out1 = htmlentities($out);
