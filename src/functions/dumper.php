@@ -14,7 +14,7 @@ if (!function_exists('dumpIntoStr')) {
         $out = ob_get_contents();
         ob_end_clean();
 
-        if (PHP_SAPI !== 'cli') {
+        if (PHP_SAPI !== 'cli' || defined('IS_TEST_FOR_DUMPER')) {
             $ret = "<style>pre.dump-dd{position:relative;z-index:99999 !important;width:fit-content;background-color:#333333;border:1px dashed #cccccc;color:#cccccc;padding:5px}span.dump-collapsed span{display:none}span.js-dump-collapse{display:unset !important;}span.js-dump-collapse.dump-collapsed:before{position:relative;content:'+';font-weight:bold;color:#6caa36;cursor:pointer}span.js-dump-collapse.dump-un-collapsed:before{position:relative;content:'-';font-weight:bold;color:#d02a2c;cursor:pointer}span.dump-expand-all:before{position:relative;content:'+>>';font-weight:bold;color:#6caa36;cursor:pointer}span.dump-collapse-all:before{position:relative;content:'<<-';font-weight:bold;color:#d02a2c;cursor:pointer}</style>";
             $ret .= '<pre class="dump-dd">';
 
