@@ -55,7 +55,7 @@ if (!function_exists('dump')) {
     function dump(...$vars)
     {
         foreach ($vars as $var) {
-            echo dumpIntoStr(...$var);
+            echo dumpIntoStr($var);
         }
     }
 }
