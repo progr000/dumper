@@ -7,13 +7,10 @@ if (!function_exists('dumpIntoStr')) {
      * @param ...$vars
      * @return string
      */
-    function dumpIntoStr($vars)
+    function dumpIntoStr(...$vars)
     {
         ob_start();
-        $vars = func_get_args();
-        foreach ($vars as $var) {
-            var_dump($var);
-        }
+        var_dump(...$vars);
         $out = ob_get_contents();
         ob_end_clean();
 
@@ -55,12 +52,9 @@ if (!function_exists('dump')) {
      * @param ...$vars
      * @return void
      */
-    function dump($vars)
+    function dump(...$vars)
     {
-        $vars = func_get_args();
-        foreach ($vars as $var) {
-            echo dumpIntoStr($var);
-        }
+        echo dumpIntoStr(...$vars);
     }
 }
 
@@ -69,12 +63,9 @@ if (!function_exists('dd')) {
      * @param ...$vars
      * @return void
      */
-    function dd($vars)
+    function dd(...$vars)
     {
-        $vars = func_get_args();
-        foreach ($vars as $var) {
-            echo dumpIntoStr($var);
-        }
+        dump(...$vars);
         die();
     }
 }
@@ -84,12 +75,9 @@ if (!function_exists('dumpIntoSTDERR')) {
      * @param ...$vars
      * @return void
      */
-    function dumpIntoSTDERR($vars) {
-        $vars = func_get_args();
-        foreach ($vars as $var) {
-            fwrite(STDERR, dumpIntoStr($var) . "\n\n");
-            //fwrite(STDERR, var_export($var, true) . "\n\n");
-        }
+    function dumpIntoSTDERR(...$vars) {
+        fwrite(STDERR, dumpIntoStr(...$vars) . "\n\n");
+        //fwrite(STDERR, var_export($var, true) . "\n\n");
     }
 }
 
