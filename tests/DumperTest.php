@@ -10,7 +10,7 @@ class DumperTest extends TestCase
      */
     public function testDumpIntoStrForConsole()
     {
-        $ret = dumpIntoStr(['aaa', 'bbb', 'ccc']);
+        $ret = dumpIntoStr(array('aaa', 'bbb', 'ccc'));
         $this->assertContains('aaa', $ret);
         $this->assertContains('bbb', $ret);
         $this->assertContains('ccc', $ret);
@@ -24,7 +24,7 @@ class DumperTest extends TestCase
     public function testDumpIntoStrForWeb()
     {
         define('IS_TEST_FOR_DUMPER', true);
-        $ret = dumpIntoStr(['aaa', 'bbb', 'ccc']);
+        $ret = dumpIntoStr(array('aaa', 'bbb', 'ccc'));
         $this->assertContains('aaa', $ret);
         $this->assertContains('bbb', $ret);
         $this->assertContains('ccc', $ret);
