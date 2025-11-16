@@ -54,7 +54,9 @@ if (!function_exists('dump')) {
      */
     function dump(...$vars)
     {
-        echo dumpIntoStr(...$vars);
+        foreach ($vars as $var) {
+            echo dumpIntoStr(...$var);
+        }
     }
 }
 
@@ -76,8 +78,10 @@ if (!function_exists('dumpIntoSTDERR')) {
      * @return void
      */
     function dumpIntoSTDERR(...$vars) {
-        fwrite(STDERR, dumpIntoStr(...$vars) . "\n\n");
-        //fwrite(STDERR, var_export($var, true) . "\n\n");
+        foreach ($vars as $var) {
+            fwrite(STDERR, dumpIntoStr($var) . "\n");
+            //fwrite(STDERR, var_export($var, true) . "\n\n");
+        }
     }
 }
 
